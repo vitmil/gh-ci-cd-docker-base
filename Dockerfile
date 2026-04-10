@@ -3,6 +3,7 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Cache bust: ensure package-lock.json is included
 COPY package*.json ./
 RUN npm ci --only=production
 
